@@ -23,7 +23,9 @@ There's really not that much text here, it's gonna be fine.
 # Where the 🦆 do I even put my code?
 
 You go right click on a folder in the Project viewer and click on new BehaviorScript.
+
 ![Create Script](./Media/CreateScriptImg.png)
+
 This is where we put stuff.
 
 There's two methods auto generated in there which we will probably wanna use. Unity is also so kind and explains them to us very cool :v
@@ -56,9 +58,11 @@ FixedUpdate is more usefull if you want to do things with Physics because Unity 
 
 ## Components
 ![Inspector Img](./Media/InspectorImg.png)
+
 Essentially everything in Unity is a Component. **Your scripts are also Components!** and you can add them to a object by dragging them in the inspector.
 
 Variables that are marked as `public` or have `[SerializeField]` above them are then shown in the inspector.
+
 ![Inspector Fields Img](./Media/InspectorFieldsImg.png) ![Inspector Fields Img2](./Media/InspectorFieldsImg2.png)
 
 To now have a reference to the Collider you can drag and drop the Collider in there.
@@ -143,7 +147,9 @@ Also don't forget to multiply by `Time.deltaTime` if your working in `Update` to
 
 ##### Physics Based
 For physics we need the Rigidbody component: ...
+
 ![Rigidbody](./Media/RigidbodyImg.png)
+
 ...and get it in code:
 ```csharp
 Rigidbody rb;
@@ -184,6 +190,7 @@ transform.forward = toOtherObject;
 ## Collision
 ***For the collision between two collider one of the objects needs a Rigidbody!***
 Collider can be a trigger, which does not actually collide it just sends the collision (the OnTrigger) signal.
+
 ![Collider](./Media/ColliderImg.png)
 
 
@@ -240,7 +247,9 @@ foreach (RaycastHit hit in hits)
 
 Cool you hit a thing but how do we know what that is?
 With ***Tags***~.
+
 ![GameObject Tags](./Media/GameObjectTagsImg.png)
+
 At the very top every GameObject has both a Tag and a Layer. As you can see Unity has some default Tags.
 ```csharp
 private void OnCollisionEnter(Collision collision)
@@ -253,7 +262,9 @@ This is an example from maybe a projectile that detects if the player has been h
 
 ### Layers
 Layers are similar to Tags in a way, however Layers are more used to ignore collision completely between two groups of objects..
+
 ![Collision Matrix](./Media/CollisionMatrixImg.png)
+
 You can find this cool matrix to turn off collision in the Project Settings.
 
 ---
@@ -285,6 +296,7 @@ Prefabs are a way to store GameObjects that you created outside of scenes. Very 
 Just drag a object from the scene into a folder to create a Prefab.
 
 ![Project View1](./Media/ProjectViewImg1.png)
+
 when clicking on the prefab on the folder  and scrolling to the top you can then see *Open Prefab*, where you can edit it. You can also edit it directly here.
  
  In a script make a global variable public to see it in the Inspector:
@@ -306,9 +318,11 @@ public class TestingScript : MonoBehaviour
 ```
 
 Now you have to drag and drop the prefab into the "None(GameObject)" slot:
+
 ![Script Component Img1](./Media/ScriptComponentImg1.png)
 
 The reference in the inspector does not *have* to be a Prefab btw. it can be any object from your scene.
+
 ![Script Component Img2](./Media/ScriptComponentImg2.png)
 
 Now you can instantiate `aCoolObjectPrefab` as often as you want with [[Unity Crash Course#Instantiate and Destroy|Instantiate]].
@@ -346,13 +360,16 @@ You can also stop your Coroutines if you don't want to wait for them to finish. 
 
 ## UI / Canvas
 If you wanna make UI set your canvas to ***Scale With Screen Size***. ***Constant Pixel Size*** is default but sucks.
+
 ![Canvas Scaler](./Media/CanvasScalerImg.png)
 
 
 ## Resolution
 
 In the Game View you probably wanna set the Aspect from Free Aspect to 16:9.
+
 ![Aspect Ratio](./Media/AspectRatioImg.png)
+
 Also turn off Low Resolution Aspect Ratio if it's on.
 
 ## Use Text Mesh Pro
@@ -381,7 +398,9 @@ This will exit Playmode if you are working in Unity and exit the Game if you are
 
 ## Nice Graphics
 There are different Render Pipelines in the Package Manager for Unity. If good graphics is something you want to focus on consider giving these a look.
+
 ![Render Pipelines](./Media/RenderPipelinesImg.png)
+
 Some of these will also Support Shader Graph, which I also recommend you look at.
 
 ## 100 Tips from Brackeys 
