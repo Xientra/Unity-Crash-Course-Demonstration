@@ -49,3 +49,12 @@ The following packages were updated:
   com.unity.2d.pixel-perfect from version 2.0.4 to 2.1.0
   com.unity.2d.psdimporter from version 2.1.5 to 2.1.8
   com.unity.2d.spriteshape from version 3.0.13 to 3.0.17
+
+=== Mon Oct 24 11:07:16 2022
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.2d.animation from version 3.2.11 to 3.2.14
+  com.unity.collab-proxy from version 1.10.2 to 1.14.4

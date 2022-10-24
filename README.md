@@ -65,6 +65,10 @@ Variables that are marked as `public` or have `[SerializeField]` above them are 
 
 ![Inspector Fields Img](./Media/InspectorFieldsImg.png) ![Inspector Fields Img2](./Media/InspectorFieldsImg2.png)
 
+There's also [Hide in Inspector](https://docs.unity3d.com/ScriptReference/HideInInspector.html) to hide public variables.
+
+#### Reference to Components
+
 To now have a reference to the Collider you can drag and drop the Collider in there.
 
 There is also a different way to get a component and that is with [GetComponent](https://docs.unity3d.com/ScriptReference/GameObject.GetComponent.html)
@@ -384,6 +388,25 @@ public class TestingScript : MonoBehaviour
 ```
 In code you use it like this.
 
+## Cooldown
+If you want to add a delay to an action the user can take there are many ways. Coroutines for example.
+But using 2 float variables and 1 if statement is a really simple way that also works very well:
+```csharp
+public float shootDelay = 0.5f;
+private float timestamp = 0;
+
+
+private void Update()
+{
+	if (Input.GetMouseButtonDown(0) && Time.time > timestamp)
+	{
+		Shoot();
+		timestamp = Time.time + shootDelay;
+	}
+}
+```
+This sets the `timestamp` variable to a point in the future whenever the player shoots. And it can only happen again if the current time is after the point in the future that is saved in `timestamp`.
+
 ## Exit the Game
 There is this nice bit of code that I wanted to share:
 
@@ -395,6 +418,20 @@ Application.Quit();
 #endif
 ```
 This will exit Playmode if you are working in Unity and exit the Game if you are playing it in a finished build. 
+
+## Header and Space
+To have a nicer Inspector you can use commands similar to `[SerializeField]` these are [`Header`](https://docs.unity3d.com/ScriptReference/HeaderAttribute.html) and [`Space`](https://docs.unity3d.com/ScriptReference/SpaceAttribute.html).
+These can group the variables you see in the inspector.
+
+```csharp
+[Header("References:")]
+
+public GameObject projectilePrefab;
+
+[Space(5)]
+
+public TMP_Text hitsLabel;
+```
 
 ## Nice Graphics
 There are different Render Pipelines in the Package Manager for Unity. If good graphics is something you want to focus on consider giving these a look.
